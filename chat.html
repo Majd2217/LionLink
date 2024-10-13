@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat - LionLink</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="chat-page"> <!-- Added "chat-page" class to body -->
+  <div class="container">
+    <!-- Left Section: Navigation -->
+    <aside class="nav-section">
+      <h1>LionLink</h1>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="chat.html" class="active">Chat</a>
+        <a href="events.html">Events</a>
+        <a href="profile.html">Your Profile</a>
+      </nav>
+    </aside>
+
+    <!-- Middle Section: Chat Layout -->
+    <main class="chat-section">
+      <div class="chat-container">
+        <!-- Left Column: Inbox, Conversations, Requests -->
+        <div class="chat-sidebar">
+          <div class="chat-box inbox">
+            <h3>Inbox</h3>
+            <ul>
+              <li><strong>John Doe</strong> - "Hey, how's it going?"</li>
+              <li><strong>Jane Smith</strong> - "Let's catch up soon!"</li>
+              <li><strong>Club Meeting</strong> - "Reminder: Robotics Club on Friday."</li>
+            </ul>
+          </div>
+
+          <div class="chat-box conversations">
+            <h3>Conversations</h3>
+            <ul>
+              <li><strong>Mike Johnson</strong> - "See you at the game!"</li>
+              <li><strong>Emily Davis</strong> - "Can we talk about the project?"</li>
+            </ul>
+          </div>
+
+          <div class="chat-box requests">
+            <h3>Requests</h3>
+            <ul>
+              <li><strong>Alex Lee</strong> - "Wants to connect."</li>
+              <li><strong>Sara Wilson</strong> - "Sent you a message request."</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Right Column: Chat Window -->
+        <div class="chat-window">
+          <div class="chat-header">
+            <h3>John Doe</h3>
+          </div>
+          <div class="chat-messages">
+            <div class="message sender">
+              <p><strong>You:</strong> yo, i saw your post. i'm tryna go to the Music Discussion club meeting tn too.</p>
+              <span class="timestamp">12:30 PM</span>
+            </div>
+            <div class="message receiver">
+              <p><strong>John:</strong> bet same. meet up near the hub front entrance?</p>
+              <span class="timestamp">12:32 PM</span>
+            </div>
+            <!-- Add more chat messages here -->
+          </div>
+          <div class="chat-input">
+            <input type="text" placeholder="Type a message..." />
+            <button>Send</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 LionLink</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

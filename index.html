@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LionLink</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <!-- Left Section: Navigation -->
+    <aside class="nav-section">
+      <h1>lionlink</h1>
+      <nav>
+        <a href="index.html">home</a>
+        <a href="chat.html">chat</a>
+        <a href="events.html">events</a>
+        <a href="profile.html">your profile</a>
+      </nav>
+    </aside>
+
+    <!-- Middle Section: Feed -->
+    <main class="feed-section">
+      <h2>feed</h2>
+      <div id="feed-container">
+        <!-- Event posts will be dynamically generated here -->
+      </div>
+      <!-- Add Post Button -->
+      <button id="add-post-btn">Add Post</button>
+
+
+      <!-- Hidden Form for Adding Post -->
+      <div id="post-form-popup" class="hidden">
+        <form id="eventForm">
+          <input type="text" id="eventTitle" placeholder="Event Title" required>
+          <textarea id="eventDetails" placeholder="Event Details (date, location, etc.)" required></textarea>
+          <button type="submit">Post</button>
+          <button id="cancel-post-btn" type="button">Cancel</button>
+        </form>
+      </div>
+    </main>
+
+    <!-- Right Section: Upcoming Events -->
+    <aside class="upcoming-section">
+      <h2>notifications</h2>
+      <ul id="upcoming-events-list">
+        <li><strong>Majd wants to chat</strong> - 12:10pm</li>
+        <li><strong>Reminder: Club Meeting: Robotics Club</strong> - October 16, 2024</li>
+        <!-- Add more events here -->
+      </ul>
+    </aside>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 LionLink</p>
+  </footer>
+
+  <!-- Firebase SDKs need to be included before your custom script -->
+  <script src="https://www.gstatic.com/firebasejs/9.16.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.16.0/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.16.0/firebase-auth.js"></script>
+
+  <!-- Your custom script file -->
+  <script src="script.js"></script>
+
+</body>
+</html>

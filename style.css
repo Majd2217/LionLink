@@ -1,0 +1,488 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Left Section: Navigation */
+.nav-section {
+  flex: 1;
+  background-color: #003366;
+  color: white;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.nav-section h1 {
+  margin-bottom: 2rem;
+}
+
+.nav-section nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 0;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.nav-section nav a:hover {
+  text-decoration: underline;
+}
+
+/* Middle Section: Feed */
+.feed-section {
+  flex: 2;
+  padding: 2rem;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#feed-container {
+  flex-grow: 1;
+  overflow-y: auto;
+  margin-bottom: 1rem;
+}
+
+.event-post {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#add-post-btn {
+  padding: 10px;
+  background-color: #0072CE;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#add-post-btn:hover {
+  background-color: #00509e;
+}
+
+/* Hidden Post Form */
+#post-form-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+  width: 50%; /* Make the pop-up take half of the width of the feed section */
+  height: 50%; /* Set the height to take up half the space */
+  display: none; /* Initially hidden */
+  overflow: auto; /* Add scroll if needed */
+}
+
+#post-form-popup input, #post-form-popup textarea {
+  width: 100%; /* Make inputs full width */
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+#post-form-popup button {
+  padding: 10px 20px;
+  background-color: #0072CE;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 15px; /* Adds space between the Post and Cancel buttons */
+  margin-top: 10px; /* Adds space above the buttons */
+}
+
+#post-form-popup button:last-child {
+  margin-right: 0; /* Removes extra space after the Cancel button */
+}
+
+
+/* Right Section: Chat */
+.chat-section {
+  flex: 1;
+  background-color: #f1f1f1;
+  padding: 2rem;
+}
+
+.chat-container {
+  height: 100%;
+  overflow-y: auto;
+}
+
+/* Utilities */
+.hidden {
+  display: none;
+}
+
+/* Event page Posts */
+.event-post {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Profile Form */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+form input, form textarea {
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+form button {
+  padding: 10px;
+  background-color: #0072CE;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #00509e;
+}
+/* Right Section: Upcoming Events */
+.upcoming-section {
+  flex: 1;
+  background-color: #f1f1f1;
+  padding: 2rem;
+}
+
+.upcoming-section h2 {
+  margin-bottom: 1rem;
+}
+
+#upcoming-events-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+#upcoming-events-list li {
+  background-color: #fff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.hidden {
+  display: none;
+}
+/* Main content section for events */
+.main-content {
+  margin-left: 200px; /* Adjust based on your sidebar width */
+  padding: 20px;
+  background-color: #fff;
+  min-height: 100vh;
+}
+
+/* Sidebar navigation */
+.sidebar {
+  position: fixed;
+  width: 200px;
+  height: 100%;
+  background-color: #003366;
+  color: white;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar h2 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: white;
+}
+
+.sidebar nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar nav ul li {
+  margin-bottom: 15px;
+}
+
+.sidebar nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.sidebar nav ul li a.active {
+  text-decoration: underline;
+}
+
+/* Styling for event cards */
+#events-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+/* Styling for event cards */
+/* Styling for event cards */
+.event-post {
+  background-color: #ffffff;  /* White background for a clean look */
+  border: 1px solid #e0e0e0;  /* Light border for subtle definition */
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;  /* Slightly rounded corners for a modern look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Subtle shadow for depth */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;  /* Smooth hover effect */
+}
+
+.event-post:hover {
+  transform: translateY(-5px);  /* Slight lift on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  /* Enhanced shadow on hover */
+}
+
+.event-post h3 {
+  margin-bottom: 10px;
+  color: #333333;
+  font-size: 1.4rem;  /* Large title for emphasis */
+}
+
+.event-post p {
+  color: #666666;
+  margin-bottom: 15px;
+  line-height: 1.5;  /* Improved readability */
+}
+
+.event-post a {
+  color: #0072CE;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.event-post a:hover {
+  text-decoration: underline;
+}
+
+/* Styling for the events container (responsive grid) */
+#events-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));  /* Responsive grid layout */
+  gap: 20px;  /* Space between the event cards */
+  padding: 20px;
+}
+
+@media (max-width: 768px) {
+  #events-list {
+    grid-template-columns: 1fr;  /* On small screens, display one card per row */
+  }
+}
+
+/* Chat Page Styles */
+/* Chat Page Specific Styles */
+
+/* Ensure the left navigation bar takes 1/4 of the screen */
+.chat-page .nav-section {
+  flex: 0.5; /* 1/4 of the screen */
+  background-color: #003366;
+  color: white;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.chat-page .nav-section h1 {
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.chat-page .nav-section nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem;
+  margin-bottom: 1.5rem;
+  display: block;
+  font-size: 1.1rem;
+}
+
+.chat-page .nav-section nav a:hover {
+  text-decoration: underline;
+}
+
+/* The main chat layout should take 3/4 of the screen */
+.chat-page .chat-section {
+  flex: 3; /* 3/4 of the screen */
+  display: flex;
+  padding: 20px;
+  background-color: #fff;
+}
+
+/* Chat Sidebar for Inbox, Conversations, and Requests */
+.chat-page .chat-sidebar {
+  width: 40%; /* Sidebar (30% of chat-section) */
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-right: 1px solid #ddd;
+  border-radius: 8px;  /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  overflow-y: auto;
+}
+
+.chat-page .chat-box h3 {
+  font-size: 1.3rem;
+  color: #003366;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 0.5rem;
+}
+
+.chat-page .chat-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.chat-page .chat-box ul li {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.chat-page .chat-box ul li:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+/* Chat Window */
+.chat-page .chat-window {
+  flex-grow: 4;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-left: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);  /* Add some shadow */
+}
+
+.chat-page .chat-header {
+  padding: 20px;
+  background-color: #003366;
+  color: white;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-radius: 8px 8px 0 0; /* Round top corners */
+}
+
+.chat-page .chat-messages {
+  flex-grow: 2;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #f9f9f9;
+  border-radius: 0 0 8px 8px; /* Round bottom corners */
+}
+
+.chat-page .message {
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.chat-page .message p {
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+
+.chat-page .message .timestamp {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+/* Message sender/receiver distinction */
+.chat-page .sender p {
+  color: #0072CE;
+}
+
+.chat-page .receiver p {
+  color: #333;
+}
+
+/* Input section at the bottom of the chat */
+.chat-page .chat-input {
+  display: flex;
+  padding: 10px;
+  border-top: 1px solid #ddd;
+  background-color: #fff;
+}
+
+.chat-page .chat-input input {
+  flex-grow: 1;
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.chat-page .chat-input button {
+  padding: 10px 20px;
+  background-color: #0072CE;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.chat-page .chat-input button:hover {
+  background-color: #00509e;
+}
+
+.chat-page .chat-container {
+  display: flex;
+  height: 100%;
+}
+
+/* Responsive tweaks for smaller screens */
+@media (max-width: 768px) {
+  .chat-page .chat-sidebar {
+    width: 100%;
+  }
+}

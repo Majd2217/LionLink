@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LionLink - Login</title>
+  <link rel="stylesheet" href="style.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+
+  <div class="login-container">
+    <h1>Welcome to LionLink</h1>
+    <p>Please log in with your PSU email to access the platform.</p>
+
+    <!-- Step 1: Email Input Form -->
+    <form id="emailForm">
+        <label for="email">PSU Email Address:</label>
+        <input type="email" id="email" placeholder="name@psu.edu" required autocomplete="off">
+        <button type="submit">Send Verification Code</button>
+      </form>
+      
+    <!-- Step 2: Verification Code Input (Initially Hidden) -->
+    <div id="verification-section" class="hidden">
+      <form id="verificationForm">
+        <label for="verificationCode">Enter Verification Code:</label>
+        <input type="text" id="verificationCode" placeholder="Enter code" required>
+        <button type="submit">Verify and Login</button>
+      </form>
+    </div>
+
+    <!-- Message area for errors and status updates -->
+    <p id="message"></p> 
+  </div>
+
+  <script src="script.js"></script> <!-- Link to your JS file -->
+</body>
+</html>
+
+
