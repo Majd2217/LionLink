@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const email = document.getElementById('email').value;
         const message = document.getElementById('message');
   
-        if (email.endsWith('@psu.edu')) {
+        if (email.endsWith('@psu.edu') || email.endsWith('@gmail.com')) {
           fetch('http://localhost:3000/send-verification', {
             method: 'POST',
             headers: {
@@ -127,4 +127,73 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   
   });
+// Wait for the DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function () {
+    // Fetch scraped events from your backend
+    fetch('http://localhost:3000/scraped-events')
+      .then(response => response.json())
+      .then(events => {
+        const eventsContainer = document.getElementById('events-list');
+        eventsContainer.innerHTML = '';  // Clear existing content
+  
+        // Check if there are any events returned
+        if (events.length > 0) {
+          // Loop through each event and add it to the page
+          events.forEach(event => {
+            const eventElement = document.createElement('div');
+            eventElement.classList.add('event-card');
+  
+            eventElement.innerHTML = `
+              <h3>${event.title}</h3>
+              <a href="${event.link}" target="_blank">More Info</a>
+            `;
+  
+            eventsContainer.appendChild(eventElement);
+          });
+        } else {
+          // If no events are found, display a message
+          eventsContainer.innerHTML = '<p>No upcoming events found.</p>';
+        }
+      })
+      .catch(error => console.error('Error fetching events:', error));
+  });
+  
+  document.addEventListener('DOMContentLoaded', function () {
+    // Fetch scraped events from your backend
+    fetch('http://localhost:3000/scraped-events')
+      .then(response => response.json())
+      .then(events => {
+        const eventsList = document.getElementById('events-list');
+        eventsList.innerHTML = '';  // Clear existing content
+  
+        // Check if there are any events returned
+        if (events.length > 0) {
+          // Loop through each event and add it to the page
+          events.forEach(event => {
+            const eventElement = document.createElement('div');
+            eventElement.classList.add('event-post');
+  
+            eventElement.innerHTML = `
+              <h3>${event.title}</h3>
+              <p>${formatEventDetails(event.title)}</p>
+              <a href="${event.link}" target="_blank">More Info</a>
+            `;
+  
+            eventsList.appendChild(eventElement);
+          });
+        } else {
+          // If no events are found, display a message
+          eventsList.innerHTML = '<p>No upcoming events found.</p>';
+        }
+      })
+      .catch(error => console.error('Error fetching events:', error));
+  });
+  
+  // Helper function to extract and format event details from the title
+  function formatEventDetails(title) {
+    // Assuming the event details are separated by newline characters
+    const details = title.split('\n');
+    // Join the details with a space or format as needed
+    return details.slice(1).join(' ');
+  }
   
