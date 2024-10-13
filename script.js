@@ -73,7 +73,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 
-
   // ----------------------------
   // Email Verification Feature
   // ----------------------------
@@ -107,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
           message.textContent = 'Error sending verification code. Please try again.';
         });
       } else {
-        message.textContent = 'Please enter a valid PSU email address (e.g., name@psu.edu).';
+        message.textContent = 'Please enter a valid PSU or Gmail email address.';
       }
     });
 
@@ -115,31 +114,14 @@ document.addEventListener('DOMContentLoaded', function () {
       e.preventDefault();
       console.log('Verification form submission prevented.');
 
-      const email = document.getElementById('email').value;
-      const verificationCode = document.getElementById('verificationCode').value;
       const message = document.getElementById('message');
 
-      fetch('http://localhost:3000/verify-code', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, code: verificationCode }),
-      })
-      .then((response) => response.text())
-      .then((data) => {
-        if (data === 'Code verified, login successful!') {
-          message.textContent = '';
-          alert('Login successful! Redirecting to LionLink...');
-          window.location.href = 'index.html';
-        } else {
-          message.textContent = 'Invalid verification code. Please try again.';
-        }
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-        message.textContent = 'Error verifying code. Please try again.';
-      });
+      // Here we simulate accepting any verification code for demo purposes
+      // You can add any condition to accept the code for the demo.
+      
+      message.textContent = '';
+      alert('Login successful! Redirecting to LionLink...');
+      window.location.href = 'index.html';
     });
   } else {
     console.error("Email or verification form elements not found.");

@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
+  <div class="container profile-page">
     <!-- Left Section: Navigation -->
     <aside class="nav-section">
       <h1>lionlink</h1>
@@ -20,8 +20,19 @@
     </aside>
 
     <!-- Middle Section: Profile Form -->
-    <main class="feed-section">
+    <main class="profile-container">
       <h2>Your Profile</h2>
+
+      <!-- Profile Picture Section -->
+      <div class="profile-picture-container">
+        <div class="profile-picture">
+          <!-- Placeholder for profile picture -->
+          JD <!-- Replace with initials or profile picture -->
+        </div>
+        <button class="edit-picture-btn">Edit Profile Picture</button>
+      </div>
+
+      <!-- Profile Form -->
       <form id="profileForm">
         <label for="name">Name:</label>
         <input type="text" id="name" name="name" placeholder="Enter your name" required>
@@ -42,3 +53,4 @@
   </footer>
 </body>
 </html>
+
