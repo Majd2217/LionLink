@@ -1,0 +1,206 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+  }
+  
+  .container {
+    display: flex;
+    height: 100vh;
+  }
+  
+  /* Left Section: Navigation */
+  .nav-section {
+    flex: 1;
+    background-color: #003366;
+    color: white;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .nav-section h1 {
+    margin-bottom: 2rem;
+  }
+  
+  .nav-section nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 0;
+    margin-bottom: 1rem;
+    display: block;
+  }
+  
+  .nav-section nav a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Middle Section: Feed */
+  .feed-section {
+    flex: 2;
+    padding: 2rem;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  #feed-container {
+    flex-grow: 1;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+  }
+  
+  .event-post {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  #add-post-btn {
+    padding: 10px;
+    background-color: #0072CE;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  #add-post-btn:hover {
+    background-color: #00509e;
+  }
+  
+  /* Hidden Post Form */
+  #post-form-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    width: 50%; /* Make the pop-up take half of the width of the feed section */
+    height: 50%; /* Set the height to take up half the space */
+    display: none; /* Initially hidden */
+    overflow: auto; /* Add scroll if needed */
+  }
+  
+  #post-form-popup input, #post-form-popup textarea {
+    width: 100%; /* Make inputs full width */
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  #post-form-popup button {
+    padding: 10px 20px;
+    background-color: #0072CE;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 15px; /* Adds space between the Post and Cancel buttons */
+    margin-top: 10px; /* Adds space above the buttons */
+  }
+  
+  #post-form-popup button:last-child {
+    margin-right: 0; /* Removes extra space after the Cancel button */
+  }
+  
+  
+  /* Right Section: Chat */
+  .chat-section {
+    flex: 1;
+    background-color: #f1f1f1;
+    padding: 2rem;
+  }
+  
+  .chat-container {
+    height: 100%;
+    overflow-y: auto;
+  }
+  
+  /* Utilities */
+  .hidden {
+    display: none;
+  }
+
+  /* Event page Posts */
+.event-post {
+    background-color: #f9f9f9;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Profile Form */
+form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  form label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+  }
+  
+  form input, form textarea {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  form button {
+    padding: 10px;
+    background-color: #0072CE;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  form button:hover {
+    background-color: #00509e;
+  }
+  /* Right Section: Upcoming Events */
+.upcoming-section {
+    flex: 1;
+    background-color: #f1f1f1;
+    padding: 2rem;
+  }
+  
+  .upcoming-section h2 {
+    margin-bottom: 1rem;
+  }
+  
+  #upcoming-events-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  #upcoming-events-list li {
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
